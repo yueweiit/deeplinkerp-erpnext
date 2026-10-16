@@ -1,4 +1,8 @@
 
+## DeeplinkERP 仓库
+
+本仓库 [yueweiit/deeplinkerp-erpnext](https://github.com/yueweiit/deeplinkerp-erpnext) 维护 DeeplinkERP 使用的 ERPNext 定制版本，开发主线和 PR 目标均为 `main`，Frappe App 名保持 `erpnext`。官方上游为 [frappe/erpnext](https://github.com/frappe/erpnext)，同步官方更新需独立评审和测试。原共享仓库 `yueweiit/DeepLinkERP` 的 `erpnext` 分支保留为历史入口。
+
 <div align="center">
     <a href="https://frappe.io/erpnext">
 	<img src="./erpnext/public/images/v16/erpnext.svg" alt="ERPNext Logo" height="80px" width="80xp"/>
