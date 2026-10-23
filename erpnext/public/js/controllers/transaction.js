@@ -1251,6 +1251,26 @@ erpnext.TransactionController = class TransactionController extends erpnext.taxe
 		};
 
 		var set_party_account = function (set_pricing) {
+			if (["Sales Order", "Purchase Order"].includes(me.frm.doc.doctype)) {
+				const company = me.frm.doc.company;
+				const party_type = me.frm.doc.doctype === "Purchase Order" ? "Supplier" : "Customer";
+				const party_field = party_type.toLowerCase();
+				const party = me.frm.doc[party_field];
+				if (company && party) {
+					return frappe.call({
+						method: "erpnext.accounts.party.get_party_details",
+						args: { party, party_type, company, doctype: me.frm.doc.doctype },
+						callback(r) {
+							if (me.frm.doc.company !== company || me.frm.doc[party_field] !== party) return;
+							if (r.message?.party_account_currency) {
+								me.frm.set_value("party_account_currency", r.message.party_account_currency);
+							}
+							set_pricing();
+						},
+					});
+				}
+				if (company) me.frm.set_value("party_account_currency", me.get_company_currency());
+			}
 			if (["Sales Invoice", "Purchase Invoice"].includes(me.frm.doc.doctype)) {
 				if (me.frm.doc.doctype == "Sales Invoice") {
 					var party_type = "Customer";

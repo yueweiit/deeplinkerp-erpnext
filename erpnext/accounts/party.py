@@ -141,6 +141,9 @@ def _get_party_details(
 		ptype = "select" if frappe.only_has_select_perm(party_type) else "read"
 		frappe.has_permission(party_type, ptype, party, throw=True)
 
+	if company and doctype in ("Purchase Order", "Sales Order") and party_type in ("Supplier", "Customer"):
+		party_details["party_account_currency"] = get_party_account_currency(party_type, party.name, company)
+
 	currency = party.get("default_currency") or currency or get_company_currency(company)
 
 	party_address, shipping_address = set_address_details(
