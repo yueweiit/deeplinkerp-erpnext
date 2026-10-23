@@ -144,28 +144,6 @@
    "collapsible": 1,
    "indent": 0,
    "keep_closed": 0,
-   "label": "\u56de\u6b3e\u8bb0\u5f55",
-   "link_to": "Receipt Record",
-   "link_type": "Report",
-   "show_arrow": 0,
-   "type": "Link"
-  },
-  {
-   "child": 1,
-   "collapsible": 1,
-   "indent": 0,
-   "keep_closed": 0,
-   "label": "\u4ed8\u6b3e\u8bb0\u5f55",
-   "link_to": "Purchase Payment Record",
-   "link_type": "Report",
-   "show_arrow": 0,
-   "type": "Link"
-  },
-  {
-   "child": 1,
-   "collapsible": 1,
-   "indent": 0,
-   "keep_closed": 0,
    "label": "Accounts Receivable",
    "link_to": "Accounts Receivable",
    "link_type": "Report",
